@@ -22,7 +22,6 @@ def generate_hash_file(server, user, passwd, dir):
 
 
 def get_hash_file(server, user, passwd, port):
-    print(server, user, passwd)
     t = paramiko.Transport((server, port))
     try:
         t.connect(username=user, password=passwd)
