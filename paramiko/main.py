@@ -48,21 +48,21 @@ def main(argv):
     global passwd2
     global dir2
 
-    if len(sys.argv) > 0:
+    if len(sys.argv) >= 0:
         server1 = sys.argv[1]
-    if len(sys.argv) > 1:
+    if len(sys.argv) >= 1:
         user1 = sys.argv[2]
-    if len(sys.argv) > 2:
+    if len(sys.argv) >= 2:
         dir1 = sys.argv[3]
-    if len(sys.argv) > 3:
+    if len(sys.argv) >= 3:
         server2 = sys.argv[4]
-    if len(sys.argv) > 4:
+    if len(sys.argv) >= 4:
         user2 = sys.argv[5]
-    if len(sys.argv) > 5:
+    if len(sys.argv) >= 5:
         dir2 = sys.argv[6]
-    if len(sys.argv) > 6:
+    if len(sys.argv) >= 6:
         passwd1 = sys.argv[7]
-    if len(sys.argv) > 7:
+    if len(sys.argv) >= 7:
         passwd2 = sys.argv[8]
 
     if server1 is None:
