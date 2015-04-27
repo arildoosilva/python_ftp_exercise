@@ -13,10 +13,11 @@ def generate_hash_file(server, user, passwd, dir):
         print('Connection Failed')
         quit()
     print('Connected to', server)
+    print('Generating checksum file for', dir)
     command = ('find '+str(dir)+' -type f -exec sha256sum {} \; > /home/'+str(user)+'/$(hostname).txt')
     stdin, stdout, stderr = ssh.exec_command(command, get_pty=True)
     exit_status = stdout.channel.recv_exit_status()
-    print('Checksum file generated for', dir, '-', ('OK' if exit_status == 0 else ('Error generating for', dir)))
+    print(('Checksum file generated for' if exit_status == 0 else 'Error generating for'), dir)
     print('Finished. Disconnecting SSH from', server)
     ssh.close()
 
