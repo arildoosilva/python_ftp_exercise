@@ -20,6 +20,7 @@ port2 = None
 user2 = None
 passwd2 = None
 dir2 = None
+sys.stderr = open('errorlog.txt', 'w+')
 
 
 def main(argv):
@@ -94,3 +95,6 @@ if __name__ == "__main__":
 
     ftp.get_hash_file(server1, user1, passwd1, port1)
     ftp.get_hash_file(server2, user2, passwd2, port2)
+
+    sys.stderr.close()
+    sys.stderr = sys.__stderr__
