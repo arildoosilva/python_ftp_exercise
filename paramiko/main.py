@@ -81,16 +81,16 @@ if __name__ == "__main__":
 
     main(sys.argv[0:])
 
-    t1 = Thread(target=ftp.generate_hash_file, args=(server1, user1, passwd1, dir1, 22))  # 44 se for para o dm1
+    t1 = Thread(target=ftp.generate_hash_file, args=(server1, user1, passwd1, dir1, port1))
     t1.start()
 
     time.sleep(2)
 
-    t2 = Thread(target=ftp.generate_hash_file, args=(server2, user2, passwd2, dir2, 22))
+    t2 = Thread(target=ftp.generate_hash_file, args=(server2, user2, passwd2, dir2, port2))
     t2.start()
 
     t1.join()
     t2.join()
 
-    ftp.get_hash_file(server1, user1, passwd1, 22)
-    ftp.get_hash_file(server2, user2, passwd2, 22)
+    ftp.get_hash_file(server1, user1, passwd1, port1)
+    ftp.get_hash_file(server2, user2, passwd2, port2)
