@@ -4,11 +4,11 @@
 import paramiko
 
 
-def generate_hash_file(server, user, passwd, dir):
+def generate_hash_file(server, user, passwd, dir, server_port):
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     try:
-        ssh.connect(server, username=user, password=passwd)
+        ssh.connect(server, username=user, password=passwd, port=server_port)
     except paramiko.SSHException:
         print('Connection Failed')
         quit()
