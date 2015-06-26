@@ -87,7 +87,7 @@ if __name__ == "__main__":
     t1 = Thread(target=ftp.generate_hash_file, args=(server1, user1, passwd1, dir1, port1))
     t1.start()
 
-    time.sleep(2)
+    time.sleep(5)
 
     t2 = Thread(target=ftp.generate_hash_file, args=(server2, user2, passwd2, dir2, port2))
     t2.start()
