@@ -12,20 +12,20 @@ results = []
 
 
 def main(argv):
-    help = ('Uses python 3.4\n\n'
-            'Usage: python compare.py <file1> <file2>\n\n'
-            'Necessary modules: sys, getopt, os')
+    helptext = ('Uses python 3.4\n\n'
+                'Usage: python compare.py <file1> <file2>\n\n'
+                'Necessary modules: sys, getopt, os')
 
-    #prints the help text when -h or --help is used
+    # prints the help text when -h or --help is used
     try:
         opts, args = getopt.getopt(argv, 'h', ['help'])
     except getopt.GetoptError:
-        print(help)
+        print(helptext)
         sys.exit(2)
 
     for opt, arg in opts:
         if opt in ('-h', '--help'):
-            print(help)
+            print(helptext)
             sys.exit()
 
     global file1
@@ -62,14 +62,14 @@ if __name__ == "__main__":
         for matching_lines in matching:
             file2_code = matching_lines.split()[0]
 
-            if (file1_code == file2_code):
+            if file1_code == file2_code:
                 break
             else:
                 results.append(line.split()[1])
                 break
 
-    if (len(results) >= 1):
-        print("Codes don't match for file(s):")
+    if len(results) >= 1:
+        print("Hash codes don't match for file(s):")
         for line in results:
             print(line)
     else:
